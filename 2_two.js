@@ -9,31 +9,30 @@ let combinationMap = {
     'Z': 3
 }
 let score = 0;
-
+let losingMap = {
+    'A': 'Z', 'B': 'X', 'C': 'Y'
+}
+let winningMap = {
+    'A': 'Y', 'B': 'Z', 'C': 'X'
+}
+let predictedChar = ''
 readFile("third.txt", (err, data) => {
     if (err) throw err;
     let dataStr = data.toString().split("\n");
     for (let index = 0; index < dataStr.length; index += 1) {
         let linechar = dataStr[index].toString().split(" ")
-        let [myChar, hisChar] = [linechar[1], linechar[0]];
-        let predictedChar = '';
-        if (myChar == 'Y') {
+        let [personalChar, opponentChar] = [linechar[1], linechar[0]];
+        if (personalChar == 'Y') {
             predictedChar = linechar[0]
             score += 3;
         }
-        else if (myChar == 'X') {
-            if (hisChar == 'A') predictedChar = 'Z'
-            if (hisChar == 'B') predictedChar = 'X'
-            if (hisChar == 'C') predictedChar = 'Y'
-            score += 0;
+        else if (personalChar == 'X') {
+            predictedChar = losingMap[opponentChar]
         }
         else {
-            if (hisChar == 'A') predictedChar = 'Y'
-            if (hisChar == 'B') predictedChar = 'Z'
-            if (hisChar == 'C') predictedChar = 'X'
+            predictedChar = winningMap[opponentChar]
             score += 6;
         }
-
         score += combinationMap[predictedChar];
     }
     console.log(score)
