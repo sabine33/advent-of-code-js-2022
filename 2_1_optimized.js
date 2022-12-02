@@ -1,14 +1,14 @@
 const { readFile } = require("fs");
-let combinationMap = {
-    'A': 1,
-    'B': 2,
-    'C': 3,
-    'X': 1,
-    'Y': 2,
-    'Z': 3
-}
+
+let lettersMapping = [
+    { charOpponent: 'A', charMine: 'X', name: 'ROCK', value: 1 },
+    { charOpponent: 'B', charMine: 'Y', name: 'PAPER', value: 2 },
+    { charOpponent: 'C', charMine: 'Z', name: 'SCISSOR', value: 3 }
+]
+
 let winningCondition = ['CX', 'BZ', 'AY'];
-let drawCondition = ['CZ', 'AX', 'BY']
+let drawCondition = ['CZ', 'AX', 'BY'];
+
 readFile("third.txt", (err, data) => {
     if (err) throw err;
     let dataStr = data.toString().split("\n");
