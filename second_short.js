@@ -2,4 +2,5 @@
     (item !== ""
         ? (currentSum += +item) : ((currentSum = 0), (playerIndex += 1))) && (playerDataMap[playerIndex] = currentSum);
 });
+
 console.log(playerDataMap.sort((a, b) => b - a).slice(0, 3).reduce((acc, current) => acc + current));
