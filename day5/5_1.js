@@ -30,8 +30,8 @@ const getNumericMap = () => {
 }
 
 const makeMovement = (isReverse = false) => {
-    const hooks = prepareHooksMap(9, 4)
-    const numericMap = getNumericMap();
+    let hooks = prepareHooksMap(9, 4)
+    let numericMap = getNumericMap();
     for (var i = 0; i < numericMap.length; i++) {
         let [count, from, to] = numericMap[i];
         let slicedPiece = hooks[from].splice(0, count);
@@ -40,7 +40,6 @@ const makeMovement = (isReverse = false) => {
     }
     return hooks;
 }
-
 
 let hooks = makeMovement(true);
 let result = ''
