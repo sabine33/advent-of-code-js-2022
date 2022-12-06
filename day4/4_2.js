@@ -13,6 +13,7 @@ const arrayIntersection = (array1, array2, ...otherArray) => {
     return otherArray.length > 0 ? arrayIntersection(filteredArray, ...otherArray) : filteredArray
 };
 
+
 let count = 0;
 fileContentsArray.forEach((item, index) => {
     let items = item.split(",")
