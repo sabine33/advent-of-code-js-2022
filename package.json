@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "console-log-tree": "^1.2.1",
+    "fs": "^0.0.1-security",
+    "treeify": "^1.1.0"
   }
 }

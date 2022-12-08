@@ -7,7 +7,7 @@ function hasDups(item) {
     return (new Set(arr).size) !== arr.length;
 }
 
-for (let index = 0; index < contents.length; index++) {
+for (let index = 0; index < contents.length - MARKER_CAP; index++) {
     const element = contents.slice(index, index + MARKER_CAP)
     if (!hasDups(element)) {
         marker = index;
